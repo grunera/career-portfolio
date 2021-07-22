@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<script language="Javascript" type="text/javascript">
+    function sendMail() {
+        <!--Tester les donnees-->
+        if (document.getElementById("edTo").value.length==0) {
+            alert("Saisir l'adresse du destinataire !!!");
+            return;
+        }
+        if (document.getElementById("edSubject").value.length==0) {
+            alert("Saisir le titre !!!");
+            return;
+        }
+        if (document.getElementById("edBody").value.length==0) {
+            alert("Ecrire le message !!!");
+            return;
+        }
+        
+        var url="mailto:"+encodeURIComponent(document.getElementById("edTo").value)
+            +"?subject="+encodeURIComponent(document.getElementById("edSubject").value)
+            +"&body="+encodeURIComponent(document.getElementById("edBody").value);
+        <!--Ouvrir client messagerie-->
+        document.location=url;
+    }
+ 
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<form method="" action="javascript:sendMail()">
+    <table border="0" cellspacing="1" width="400">
+        <tr>
+            <td width="98">Destinataire</td>
+            <td width="295">
+                <input type="text" id="edTo" size="39"></td>
+        </tr>
+        <tr>
+            <td width="98">Sujet</td>
+            <td width="295">
+                <input type="text" id="edSubject" size="39"></td>
+        </tr>
+        <tr>
+            <td width="98">Message</td>
+            <td width="295">
+                <textarea rows="3" id="edBody" cols="33"></textarea></td>
+        </tr>
+    </table>
+    <br>
+    <input type="submit" value="Envoyer" >
+</form>
+
+</html>
